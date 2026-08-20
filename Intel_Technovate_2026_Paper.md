@@ -28,9 +28,9 @@ The prior RV flow derived external capacitance values primarily from flow capaci
 
 Figure 1 illustrates this problem with a concrete example. A signal crosses from Partition A into Partition B. Cells B-Receiver in Partition A carries an internal capacitance of 100uF, and Cells C-Receiver in Partition B also carries 100uF, with 10uF of routing capacitance in each partition. In the prior flow, the RV external capacitance was computed as 220uF, double-counting the receiver capacitance contributions. The corrected methodology produces an expected external capacitance of 110uF, accurately reflecting the actual loading seen by the driver.
 
-![Figure 1: Before (left) and After (right) — RV external capacitance double-counting problem and correction. Prior flow assigned 220uF external cap; corrected methodology assigns 110uF.](https://github.com/user-attachments/assets/4dfaff30-7571-4e5e-b3ad-1e60e37e53f2)
+![Figure 1: RV External Capacitance Modeling — Before vs. After](rv_cap_diagram.png)
 
-*Figure 1: Illustration of the external capacitance double-counting problem. Left: prior RV flow assigns 220uF, double-counting internal receiver capacitance. Right: corrected methodology assigns 110uF, accurately representing the actual loading condition.*
+*Figure 1: RV External Capacitance Modeling — Before vs. After. Left (BEFORE): Prior RV flow assigns 220uF, double-counting internal receiver capacitance from both partitions. Right (AFTER): New internal-capacitance-aware methodology assigns 110uF, accurately representing the actual loading condition.*
 
 This mismatch was not immediately obvious from violation counts alone. The errors were embedded in the modeling assumptions themselves, meaning that downstream optimizations could not fully resolve the violations they produced.
 
